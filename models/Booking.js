@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const {
-    ObjectId
-}
+const { ObjectId } = mongoose.Schema;
 
 
 const bookingSchema = new mongoose.Schema({
@@ -13,50 +11,64 @@ const bookingSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    itemId: [{
+    invoice: {
+        type: String,
+        required: true
+    },
+    itemId: {
         _id: {
             type: ObjectId,
             ref: 'Item',
+            required: true
+        },
+        title: {
+            type: String,
             required: true
         },
         price: {
             type: Number,
             required: true
         },
-        night: {
+        duration: {
             type: Number,
             required: true
         }
-    }],
+    },
+    total: {
+        type: Number,
+        required: true
+    },
 
-    memberId: [{
+    memberId: {
         type: ObjectId,
         ref: 'Member'
-    }],
-    bankId: [{
+    },
+    bankId: {
         type: ObjectId,
         ref: 'Bank'
-    }],
-    proofPayment: {
-        type: String,
-        require: true
     },
-    bankFrom: {
-        type: String,
-        require: true
+    payments :{
+        proofPayment: {
+            type: String,
+            require: true
+        },
+        bankFrom: {
+            type: String,
+            require: true
+        },
+        accountHolder: {
+            type: String,
+            require: true
+        },
+        imageUrl: {
+            type: String,
+            require: true
+        },
+        status: {
+            type: String,
+            require: true
+        }
     },
-    accountHolder: {
-        type: String,
-        require: true
-    },
-    imageUrl: {
-        type: String,
-        require: true
-    },
-    status: {
-        type: String,
-        require: true
-    }
 
 
 })
