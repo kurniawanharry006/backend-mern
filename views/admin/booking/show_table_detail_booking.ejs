@@ -9,6 +9,7 @@
                 <img src="http://localhost:2020/<%= booking.payments.proofPayment %>" alt="image"
                     style="width:100%; display:block">
                     <div class="row ml-1">
+                      <% if( booking.payments.status === 'Proses') { %> 
                         <form action="/admin/booking/<%= booking.id %>/confirmation?_method=PUT" method="POST"> 
                             <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-check"></i>
                             Confirmation
@@ -19,6 +20,8 @@
                             Reject
                             </button>
                         </form>
+
+                      <% } %>
                     </div>
             </div>
             <div class="col-md-8">
