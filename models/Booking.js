@@ -66,7 +66,7 @@ const bookingSchema = new mongoose.Schema({
         },
         status: {
             type: String,
-            require: true
+            default:'Proses'
         }
     },
 
